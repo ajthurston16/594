@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class MyGame implements Game {
+
+    private Board board;
+
+
+    public void initialize() {
+         board = new MyBoard(SIZE);
+    }
+
+
+    public void playGame() {
+        //Initialize the board's starting positions
+        board.setStartingPositions();
+        boolean isWhitesTurn = true;
+        board.setTurn(isWhitesTurn);
+        board.printBoard();
+        Scanner scan = new Scanner(System.in);
+        while(!board.isGameOver(isWhitesTurn)){
+            System.out.print("Select a coordinate, then hit Enter:");
+            String coordinates = scan.nextLine();
+            char row = coordinates.charAt(1);
+            char column = coordinates.charAt(0);
+            /* Keep asking for an input until a valid one is given */
+            while(!board.placePiece(row, column, isWhitesTurn)){
+                System.out.print("Invalid input.\n"
+                        + "Type an unoccupied coordinate" +
+                        " with no spaces (e.g. A5), then press enter).\n" +
+                        "If you did this, then this happened because your move was illegal.");
+                coordinates = scan.nextLine();
+                row = coordinates.charAt(0);
+                column = coordinates.charAt(1);
+            }
+        }
+        
+    }
+
+    @Override
+    public void playGameAgainstComputer() {
+        // TODO Auto-generated method stub
+
+    }
+
+    public static void main(String[] args) {
+        Game myGame = new MyGame();
+        myGame.initialize();
+        myGame.playGame();
+    }
+
+}

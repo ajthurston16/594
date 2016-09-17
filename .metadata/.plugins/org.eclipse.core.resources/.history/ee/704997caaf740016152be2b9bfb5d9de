@@ -1,0 +1,30 @@
+
+public class MyGame implements Game {
+
+    private Board board;
+
+    @Override
+    public void initialize() {
+        this.board = new MyBoard(SIZE);
+    }
+
+    @Override
+    public void playGame() {
+        //Initialize the board's starting positions
+        this.board[4][4] = 'w';
+        this.board
+        
+    }
+
+    @Override
+    public void playGameAgainstComputer() {
+        // TODO Auto-generated method stub
+
+    }
+
+    public static void main(String[] args) {
+        Game myGame = new MyGame();
+        myGame.initialize();
+    }
+
+}

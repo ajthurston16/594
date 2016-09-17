@@ -1,0 +1,30 @@
+
+public class MyGame implements Game {
+
+    private Board board;
+
+    @Override
+    public void initialize() {
+        this.board = new MyBoard(SIZE);
+    }
+
+    @Override
+    public void playGame() {
+        //Initialize the board's starting positions
+        //TODO: Determine how board should be represented in the Game class. Seems like it should 
+        //just be as a Board object, but initialization will call for either a new method for Board or exposing Board's array publicly 
+        
+    }
+
+    @Override
+    public void playGameAgainstComputer() {
+        // TODO Auto-generated method stub
+
+    }
+
+    public static void main(String[] args) {
+        Game myGame = new MyGame();
+        myGame.initialize();
+    }
+
+}

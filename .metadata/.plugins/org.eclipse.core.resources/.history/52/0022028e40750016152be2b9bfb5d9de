@@ -1,0 +1,106 @@
+/**
+ * 
+ */
+
+/**
+ * @author Alex Thurston
+ *
+ */
+public class MyBoard implements Board {
+	
+	private final int size; //TODO: Should this be a capitalized var?
+	private final int[][] board;
+	
+	public MyBoard(int size) {
+		this.size = size;
+		this.board = new int[size][size];
+	}
+	
+	/*public void createStartingPositions() {
+	    for(int i = 0; i < this.size; i++) {
+	        for(int j = 0; j < this.size; j++){
+	            this.board[i][j] = Character.SPACE_SEPARATOR;
+	        }
+	    }
+	    this.board[3][3] = 'W';
+	    this.board[4][4] = 'W';
+	    this.board[3][4] = 'B';
+	    this.board[4][3] = 'B';
+	}*/
+	
+	@Override
+	public boolean placePiece(int row, char column, boolean isWhitesTurn) {
+	    column = Character.toLowerCase(column);
+	    int columnIndex = (int) column - 97; //WARNING: This is probably wrong
+	    //TODO: Determine appropriate return value. Might want to invert if going back and forth in Game class
+	    return !isWhitesTurn;
+		//return false;
+	}
+
+	
+	@Override
+	public void printBoard() {
+	    System.out.println("   _________________");
+	    for(int i = 0; i < this.size; i++) {
+	        System.out.print(i + 1 + " | ");
+	        for(int j = 0; j < this.size; j++) {
+	            String toPrint;
+	            switch(this.board[i][j]){
+	            case 0:
+	                toPrint = "  ";
+	                break;
+	            case 1: 
+	                toPrint = "W ";
+	                break;
+	            default:
+	                toPrint = "B ";
+	                break;
+	            }
+	            System.out.print(toPrint);
+	        }
+	        System.out.println("|");
+	    }
+	    System.out.println("   -----------------\n    A B C D E F G H");
+	    //TODO: print whose turn it is right here
+	}
+
+
+	@Override
+	public boolean isMoveLegal(int row, char column, boolean isWhitesTurn) {
+	    int yCenter = (int) column - 65;
+	    int xCenter = row - 1;
+	    int srchVal = (isWhitesTurn) ? 1 : -1;
+	    System.out.println(columnIndex);
+	    /* Only begin searching the board if these conditions are met*/
+	    if (xCenter >= 0 && xCenter < this.size && yCenter >= 0 && yCenter < this.size
+	            && this.board[xCenter][yCenter] == 0){
+	        /* Set up start and stop points for our search */
+	        int xIndex = xCenter - 1; 
+	        if (xIndex < 0) {xIndex = 0;}
+	        int yIndex = yCenter - 1;
+	        if (yIndex < 0) {yIndex = 0;}
+
+	        int xStop = xCenter + 2;
+	        if (xStop > this.size) {xStop = this.size;}
+	        int yStop = yCenter + 2;
+	        if (yStop > this.size) {yStop = this.size;}
+	        // Check if it is legal semantically
+	    }
+		return false;
+	}
+	
+
+
+	@Override
+	public boolean isGameOver(boolean isWhiteTurn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+    public static void main(String[] args) {
+        MyBoard board = new MyBoard(8);
+        board.isMoveLegal(1, 'H', true);
+        board.printBoard();
+    }
+
+}

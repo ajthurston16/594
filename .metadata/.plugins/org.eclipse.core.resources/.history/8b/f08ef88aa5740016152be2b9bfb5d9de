@@ -1,0 +1,45 @@
+/**
+ * 
+ */
+
+/**
+ * @author Alex
+ *
+ */
+public class MyBoard implements Board {
+
+
+	@Override
+	public boolean placePiece(int row, char column, boolean isWhitesTurn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see Board#printBoard()
+	 */
+	@Override
+	public void printBoard() {
+		// TODO Auto-generated method stub
+
+	}
+
+	/* (non-Javadoc)
+	 * @see Board#isMoveLegal(int, char, boolean)
+	 */
+	@Override
+	public boolean isMoveLegal(int row, char column, boolean isWhitesTurn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see Board#isGameOver(boolean)
+	 */
+	@Override
+	public boolean isGameOver(boolean isWhiteTurn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

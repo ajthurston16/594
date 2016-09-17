@@ -1,0 +1,24 @@
+
+public class MyGame implements Game {
+
+    @Override
+    public void initialize() {
+        MyBoard board = new MyBoard(SIZE);
+
+    }
+
+    @Override
+    public void playGame() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void playGameAgainstComputer() {
+        // TODO Auto-generated method stub
+
+    }
+
+}
+
+initialize();

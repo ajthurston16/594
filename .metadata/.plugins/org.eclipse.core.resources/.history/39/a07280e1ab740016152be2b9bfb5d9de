@@ -1,0 +1,48 @@
+/**
+ * 
+ */
+
+/**
+ * @author Alex Thurston
+ *
+ */
+public class MyBoard implements Board {
+	
+	private final int size;
+	private final int[][] board;
+	
+	public MyBoard(int size) {
+		this.size = size;
+		this.board = new int[size][size];
+	}
+	
+	@Override
+	public boolean placePiece(int row, char column, boolean isWhitesTurn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	@Override
+	public void printBoard() {
+	    for(int i = 0; i < this.size; i++) {
+	        
+	    }
+
+	}
+
+
+	@Override
+	public boolean isMoveLegal(int row, char column, boolean isWhitesTurn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean isGameOver(boolean isWhiteTurn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

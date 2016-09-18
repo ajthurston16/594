@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class MyBoard implements Board {
 	
-	private final int size;
+	private final int size; //TODO: Should this be a capitalized var?
 	private final int[][] board;
 	private boolean isWhitesTurn;
 	private LinkedList<int[]> squaresToFlip;

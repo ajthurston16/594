@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class MyBoard implements Board {
 	
-	private final int size;
+	private final int size; //TODO: Should this be a capitalized var?
 	private final int[][] board;
 	private boolean isWhitesTurn;
 	private LinkedList<int[]> squaresToFlip;
@@ -27,6 +27,7 @@ public class MyBoard implements Board {
 	    int x = row - 1;
 	    int y = (int) column - 65;
 	    if (this.isMoveLegal(row, column, isWhitesTurn)) {
+	        
 	        this.board[x][y] = (isWhitesTurn) ? 1 : -1;
 	        /* If a piece was placed successfully, then flip squares and switch turns (need to do this
 	           now or the board won't print the correct turn) */
@@ -154,6 +155,7 @@ public class MyBoard implements Board {
 	        for(char column = 'A'; column != 'I'; column++){
 	            legalMoveFound = legalMoveFound || this.isMoveLegal(row, column, isWhiteTurn);
 	        }
+	        
 	        row++;
 	    }
 	    /* If legal moves were found, coordinates will be stored for flipping. Clear these. */
@@ -176,20 +178,20 @@ public class MyBoard implements Board {
         /*Find all possible legal moves for the computer*/
         for(int row = 1; row <= this.size; row++){
             for(char column = 'A'; column != 'I'; column++){
+                //TODO: make it possible to support black or white computer
                 /*Computer is set to play as black player by default*/
                 if(this.isMoveLegal(row, column, false)){
+                    //WARNING: Could have problems with char type here
                     int[] coordinates = {row, column};
                     possibleMoves.push(coordinates);
                 }
             }
         }
-        /*isMoveLegal probably pushed coordinates to squaresToFlip. Clear those here, then randomly place a piece
-         * in one of the legal spots.*/
-        this.squaresToFlip.clear();
         Random random = new Random();
         int randomIndex = random.nextInt(possibleMoves.size());
         int[] coordinates = possibleMoves.get(randomIndex);
         this.placePiece(coordinates[0], (char) coordinates[1], false);
+        this.squaresToFlip.clear()
     }
 
     

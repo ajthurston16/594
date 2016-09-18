@@ -1,0 +1,28 @@
+/**This class includes implementations of algorithms as called for in the theory part of HW1. See the zipped latex
+file for the rest of the writeup.
+
+@author Alex Thurston
+*/
+
+public class TheoryCode {
+
+    
+    public static int binarySearch(int[] array) {
+        int first = 0;
+        int last = array.length - 1;
+        while(last > first) { 
+            int i = (first + last / 2);
+            if(array[i] == i){
+                first = i;
+            }
+            else {
+                last = i;
+            }
+        }
+        return last;
+    }
+    
+    public static void main(String[] args) {
+    }
+
+}

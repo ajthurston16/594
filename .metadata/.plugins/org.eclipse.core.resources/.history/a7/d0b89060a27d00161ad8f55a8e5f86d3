@@ -1,0 +1,11 @@
+This class includes implementations of algorithms as called for in the theory part of HW1
+
+public class TheoryCode {
+
+    
+    
+    
+    public static void main(String[] args) {
+    }
+
+}

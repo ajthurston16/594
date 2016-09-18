@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class MyGame implements Game {
@@ -48,6 +49,7 @@ public class MyGame implements Game {
     
     public void playGameAgainstComputer() {
         /*Keep track of the coordinates where the computer can place a piece*/
+        LinkedList<int[]> possibleMoves = new LinkedList<int[]>();
         board.setStartingPositions();
         boolean isWhitesTurn = true;
         board.setTurn(isWhitesTurn);

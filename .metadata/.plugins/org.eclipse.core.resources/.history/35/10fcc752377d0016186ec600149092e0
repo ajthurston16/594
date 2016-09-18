@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class MyGame implements Game {
@@ -25,6 +26,7 @@ public class MyGame implements Game {
             char column = coordinates.charAt(0);
             /* Keep asking for an input until a valid one is given */
             while(!board.placePiece(row, column, isWhitesTurn)){
+               //TODO: When an invalid coordinate is placed, it becomes impossible to escape this loop
                 System.out.print("Invalid input.\n"
                         + "Type an unoccupied coordinate" +
                         " with no spaces (e.g. A5), then press enter).\n" +
@@ -48,6 +50,7 @@ public class MyGame implements Game {
     
     public void playGameAgainstComputer() {
         /*Keep track of the coordinates where the computer can place a piece*/
+        LinkedList<int[]> possibleMoves = new LinkedList<int[]>();
         board.setStartingPositions();
         boolean isWhitesTurn = true;
         board.setTurn(isWhitesTurn);
@@ -61,6 +64,7 @@ public class MyGame implements Game {
                 char column = coordinates.charAt(0);
                 /* Keep asking for an input until a valid one is given */
                 while (isWhitesTurn && !board.placePiece(row, column, isWhitesTurn)) {
+                    //TODO: When an invalid coordinate is placed, it becomes impossible to escape this loop
                     System.out.print("Invalid input.\n" + "Type an unoccupied coordinate"
                             + " with no spaces (e.g. A5), then press enter).\n"
                             + "If you already did this, then this happened because you attempted an illegal move.");

@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -194,20 +195,12 @@ public class MyBoard implements Board {
     }
 
     
-    public boolean whiteIsWinner(){
+    public boolean findWinner(){
         int blackSquares = 0;
         int whiteSquares = 0;
         for(int x = 0; x < this.size; x++){
-            for(int y = 0; y < this.size; y++){
-                if(this.board[x][y] == 1){
-                    whiteSquares++;
-                }
-                else if (this.board[x][y] == -1){
-                    blackSquares++;
-                }
-            }
+            for(int y = 0; )
         }
-        return blackSquares < whiteSquares;
     }
 
 

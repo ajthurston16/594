@@ -58,6 +58,6 @@ public interface Board {
 	
 	public void computerMove();
 	
-	public boolean whiteIsWinner();
+	public boolean findWinner();
 
 }

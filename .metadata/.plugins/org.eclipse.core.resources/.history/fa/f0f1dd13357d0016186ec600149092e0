@@ -1,6 +1,5 @@
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Random;
 
 /**
  * 
@@ -182,16 +181,12 @@ public class MyBoard implements Board {
                 //TODO: make it possible to support black or white computer
                 /*Computer is set to play as black player by default*/
                 if(this.isMoveLegal(row, column, false)){
-                    //WARNING: Could have problems with char type here
                     int[] coordinates = {row, column};
                     possibleMoves.push(coordinates);
                 }
             }
         }
-        Random random = new Random();
-        int randomIndex = random.nextInt(possibleMoves.size());
-        int[] coordinates = possibleMoves.get(randomIndex);
-        this.placePiece(coordinates[0], (char) coordinates[1], false);
+        Random randomIndex = new Random()
     }
 
 

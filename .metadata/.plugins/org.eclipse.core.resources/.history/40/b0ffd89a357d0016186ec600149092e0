@@ -68,7 +68,7 @@ public class MyGame implements Game {
                 } 
             }
             else{
-                System.out.println("Computer making move...");
+                System.out.println('Computer making move...');
                 board.computerMove();
             }
             board.setTurn(!isWhitesTurn);

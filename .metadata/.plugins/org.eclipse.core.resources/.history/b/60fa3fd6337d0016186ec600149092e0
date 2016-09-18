@@ -55,7 +55,5 @@ public interface Board {
 	public void setStartingPositions();
 	
 	public void setTurn(boolean isWhitesTurn);
-	
-	public void computerMove();
 
 }

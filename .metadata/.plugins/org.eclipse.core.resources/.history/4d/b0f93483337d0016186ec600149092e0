@@ -67,14 +67,9 @@ public class MyGame implements Game {
                     column = coordinates.charAt(0);
                 } 
             }
-            else{
-                System.out.println("Computer making move...");
-                board.computerMove();
-            }
             board.setTurn(!isWhitesTurn);
             isWhitesTurn = !isWhitesTurn;
         }
-        //TODO: find winner here
 
     }
 

@@ -191,7 +191,7 @@ public class MyBoard implements Board {
         Random random = new Random();
         int randomIndex = random.nextInt(possibleMoves.size());
         int[] coordinates = possibleMoves.get(randomIndex);
-        this.placePiece(coordinates[0], (char) coordinates[1], false);
+        this.placePiece(coordinates[0], coordinates[1], isWhitesTurn)
     }
 
 

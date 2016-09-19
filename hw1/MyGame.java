@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class MyGame implements Game {
@@ -11,27 +12,14 @@ public class MyGame implements Game {
 
 
     public void playGame() {
-        //Initialize the board's starting positions
+        /**Initialize the board's starting positions*/
         board.setStartingPositions();
         boolean isWhitesTurn = true;
         board.setTurn(isWhitesTurn);
         board.printBoard();
         Scanner scan = new Scanner(System.in);
-        while(!board.isGameOver(isWhitesTurn)){
-            System.out.print("Select a coordinate, then hit Enter:");
-            String coordinates = scan.nextLine();
-            int row = Character.getNumericValue(coordinates.charAt(1));
-            char column = coordinates.charAt(0);
-            /* Keep asking for an input until a valid one is given */
-            while(!board.placePiece(row, column, isWhitesTurn)){
-                System.out.print("Invalid input.\n"
-                        + "Type an unoccupied coordinate" +
-                        " with no spaces (e.g. A5), then press enter).\n" +
-                        "If you already did this, then this happened because you attempted an illegal move.");
-                coordinates = scan.nextLine();
-                row = Character.getNumericValue(coordinates.charAt(1));
-                column = coordinates.charAt(0);
-            }
+        while(!board.isGameOver(isWhitesTurn)) {
+            this.playerMove(isWhitesTurn);
             board.setTurn(!isWhitesTurn);
             isWhitesTurn = !isWhitesTurn;
         }
@@ -44,35 +32,51 @@ public class MyGame implements Game {
         }
     }
 
-    
+    private void playerMove(boolean playerIsWhite) {
+        System.out.print("Select a coordinate, then hit Enter:");
+        Scanner scan = new Scanner(System.in);
+        String coordinates = scan.nextLine();
+        int row = Character.getNumericValue(coordinates.charAt(1));
+        char column = coordinates.charAt(0);
+        /** Keep asking for an input until a valid one is given */
+        while (!board.placePiece(row, column, playerIsWhite)) {
+            System.out.print("Invalid input.\n" + "Type an unoccupied coordinate"
+                    + " with no spaces (e.g. A5), then press enter.\n"
+                    + "This may have happened because you attempted an illegal move.");
+            coordinates = scan.nextLine();
+            row = Character.getNumericValue(coordinates.charAt(1));
+            column = coordinates.charAt(0);
+        } 
+    }
+
     public void playGameAgainstComputer() {
-        //Random rand = new Random();
-        //boolean computerIsWhite = rand.nextBoolean();
+        /** White always starts the game, but white is randomly assigned to the computer or player*/
+        Random rand = new Random();
+        boolean computerIsWhite = rand.nextBoolean();
+        boolean playerIsWhite = !computerIsWhite;
         board.setStartingPositions();
         boolean isWhitesTurn = true;
         board.setTurn(isWhitesTurn);
         board.printBoard();
-        Scanner scan = new Scanner(System.in);
-        while(!board.isGameOver(isWhitesTurn)){
-            /*If human's turn, as for an input and place piece as normal*/
+        while(!board.isGameOver(isWhitesTurn)) {
+            /**If human's turn, as for an input and place piece as normal*/
             if (isWhitesTurn) {
-                System.out.print("Select a coordinate, then hit Enter:");
-                String coordinates = scan.nextLine();
-                int row = Character.getNumericValue(coordinates.charAt(1));
-                char column = coordinates.charAt(0);
-                /* Keep asking for an input until a valid one is given */
-                while (isWhitesTurn && !board.placePiece(row, column, isWhitesTurn)) {
-                    System.out.print("Invalid input.\n" + "Type an unoccupied coordinate"
-                            + " with no spaces (e.g. A5), then press enter.\n"
-                            + "This may have happened because you attempted an illegal move.");
-                    coordinates = scan.nextLine();
-                    row = Character.getNumericValue(coordinates.charAt(1));
-                    column = coordinates.charAt(0);
-                } 
+                if(computerIsWhite) {
+                    System.out.println("Computer making move...");
+                    board.computerMove(computerIsWhite);
+                }
+                else {
+                    this.playerMove(playerIsWhite);
+                }
             }
-            else{
-                System.out.println("Computer making move...");
-                board.computerMove();
+            else {
+                if(!computerIsWhite) {
+                    System.out.println("Computer making move...");
+                    board.computerMove(computerIsWhite);
+                }
+                else {
+                    this.playerMove(playerIsWhite);
+                }
             }
             board.setTurn(!isWhitesTurn);
             isWhitesTurn = !isWhitesTurn;
@@ -84,7 +88,6 @@ public class MyGame implements Game {
         else{
             System.out.println("Game Over. Black Wins.");
         }
-
     }
 
     public static void main(String[] args) {

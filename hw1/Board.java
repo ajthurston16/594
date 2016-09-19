@@ -56,7 +56,7 @@ public interface Board {
 	
 	public void setTurn(boolean isWhitesTurn);
 	
-	public void computerMove();
+	public void computerMove(boolean computerIsWhite);
 	
 	public boolean whiteIsWinner();
 

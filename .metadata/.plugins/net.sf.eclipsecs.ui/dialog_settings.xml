@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="net.sf.eclipsecs.core.config.GlobalCheckConfigurationWorkingSet">
+		<item value="30" key="colWidth3"/>
+		<item value="-1" key="selectedRow"/>
+		<item value="76" key="colWidth2"/>
+		<item value="0" key="sortColumn"/>
+		<item value="76" key="colWidth1"/>
+		<item value="102" key="colWidth0"/>
+		<item value="1" key="sortDirection"/>
+	</section>
+	<section name="net.sf.eclipsecs.ui.config.CheckConfigurationConfigureDialog">
+		<item value="161" key="colWidth3"/>
+		<item value="-1" key="selectedRow"/>
+		<item value="false" key="maximized"/>
+		<item value="92" key="colWidth2"/>
+		<item value="0" key="sortColumn"/>
+		<item value="671" key="height"/>
+		<item value="false" key="minimized"/>
+		<item value="139" key="colWidth1"/>
+		<item value="710" key="width"/>
+		<item value="70" key="colWidth0"/>
+		<item value="1" key="sortDirection"/>
+		<item value="23" key="y"/>
+		<item value="266" key="x"/>
+	</section>
+</section>
